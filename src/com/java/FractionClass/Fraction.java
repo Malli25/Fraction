@@ -55,6 +55,7 @@ public class Fraction {
   public int getDenominator() {
 		return denominator;
 	}
+  
     //set denominator
   public void setDenominator(int denomenator) {
 		this.denominator = denomenator;
@@ -117,26 +118,26 @@ public Fraction subtract(Fraction f){
 	   
 	    this.reduceFraction();
 	    f.reduceFraction();
-	     if(this.numerator!= f.numerator || this.denominator!=f.denominator)
-	    	 return "UnEqual";
-	     else
+	     if(this.numerator == f.numerator && this.denominator==f.denominator)
 	    	 return "Equal";
+	     else
+	    	 return "UnEqual";
 	   
    }
- public String isGreater(Fraction f){
+ public String isGreaterOrLess(Fraction f){
 	 
 	 String areEqual = this.areEqual(f);
 	 if(areEqual=="UnEqual"){
 		double f1value = (numerator / denominator)*1.0;
 		double f2value = (f.numerator / f.denominator)*1.0;
-	    return f1value > f2value ? "true":"false";
-	    
+	    return f1value > f2value ? "Is Greater":"Is Lesser";
+	    //return return f1value > f2value ? 1:-1; // on int return
 	 }
 	 return "false";
 }
 
 
- // Reducing the factor to their lowest 
+ // Reducing the fraction to their lowest 
   public void reduceFraction(){
 	  if(this.denominator ==0)
 		  return ;
@@ -183,12 +184,13 @@ public Fraction subtract(Fraction f){
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-     
+        
+		
 		
 		Fraction f1 = new Fraction(2, 6);
 		Fraction f2 = new Fraction(1, 5);
 	
-		System.out.println("Division of fractions" + f1.Display() + "and" + f2.Display());
+		System.out.println("Division of fractions");
 	    Fraction result = f1.division(f2);
 		result.Display();
 	

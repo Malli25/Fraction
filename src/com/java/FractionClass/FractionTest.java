@@ -24,8 +24,9 @@ public class FractionTest extends TestCase{
        	f1.reduceFraction();
        	f2.reduceFraction();
        	
-       	assertEquals(f1.getNumerator(), f2.getNumerator());
-    	assertEquals(f1.getDenominator(), f2.getDenominator());
+       	String s = f1.areEqual(f2);
+       	assertEquals("Equal",s);
+    	
 	}
 	
 	@Test
